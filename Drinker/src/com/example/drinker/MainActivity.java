@@ -6,13 +6,11 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-
-
 import android.support.v7.app.ActionBarActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,6 +25,7 @@ public class MainActivity extends Activity {
 	TextView tv;
 	String name = "";
 	String description = "";
+	Context ctx = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +41,8 @@ public class MainActivity extends Activity {
     public void Tick(View view)
     {
     	 new getBeer().execute();
+    	 DatabaseOperations DB = new DatabaseOperations(ctx);
+    	 DB.putInformation(DB, name, description);
     }
     
     public void Cross(View view)
