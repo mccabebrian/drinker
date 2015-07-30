@@ -38,6 +38,16 @@ public class MainActivity extends Activity {
         new getBeer().execute();
        
     }
+    
+    public void Tick(View view)
+    {
+    	 new getBeer().execute();
+    }
+    
+    public void Cross(View view)
+    {
+    	 new getBeer().execute();
+    }
 
     
     private class getBeer extends AsyncTask<Void, Void, Void> {
@@ -68,6 +78,10 @@ public class MainActivity extends Activity {
 					name = jo.getString("name");
 					description = jo.getString("description");
 					
+					if(jo.getString("description").equals(null))
+					{
+						description = "";
+					}
 					Log.d("name", "> " + name);
 					
 				} catch (JSONException e) {
@@ -85,6 +99,7 @@ public class MainActivity extends Activity {
 			super.onPostExecute(result);
 			Log.d("name", "> " + name);
 			tv.setText(name + "\n\n" + description);
+			description = "";
 		}
 
 		
