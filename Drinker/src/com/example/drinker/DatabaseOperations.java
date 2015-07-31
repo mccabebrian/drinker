@@ -47,14 +47,42 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do{
-
+            	Log.d("Database operations2", "tester");
                 String name = cursor.getString(cursor.getColumnIndex(TableInfo.BEER_NAME));
                 names.add(name);
+                Log.d("Database operations2", name);
                // Adding contact to list
                
             } while (cursor.moveToNext());
         }
+        else{
+        	Log.d("Database operations2", "tester2344");
+        }
+        cursor.close();
+	       db.close();
         
+	}
+	
+	
+	public String getDescByName(String name)
+	{
+		  String selectQuery = "SELECT  beer_description FROM " + TableInfo.TABLE_NAME + " WHERE beer_name = '" + name + "'";
+		  //Log.d("query", selectQuery);
+	        SQLiteDatabase db = this.getWritableDatabase();
+	        Cursor cursor = db.rawQuery(selectQuery, null);
+	        String res = "";
+	        Log.d("query", "tetttt");
+	        if (cursor.moveToFirst()){
+	        	//
+	        	
+	        	  return cursor.getString(cursor.getColumnIndex("beer_description"));
+	       }
+	        else{
+	        	cursor.close();
+	        	   db.close();
+	        	   return null;
+	        }
+	      
 	}
 	
 	public void putInformation(DatabaseOperations dop, String name, String description)
