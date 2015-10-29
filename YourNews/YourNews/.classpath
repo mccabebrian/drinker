@@ -10,5 +10,7 @@
 			<attribute name="javadoc_location" value="file:/C:/Users/Brian/Downloads/adt-bundle-windows-x86_64-20140702/adt-bundle-windows-x86_64-20140702/sdk/extras/google/google_play_services/libproject/google-play-services_lib/libs/../../../docs/reference/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Brian/Downloads/firebase-client-android-2.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Brian/Downloads/jsoup-1.8.3.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
